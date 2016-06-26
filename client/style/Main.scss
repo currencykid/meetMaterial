@@ -1,5 +1,6 @@
-$primary: #5E35B1; 
+@import '_colors'; 
 
 body {
-
+  color: #fff; 
+  background: $dark; 
 }

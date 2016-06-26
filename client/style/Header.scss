@@ -1,5 +1,7 @@
+@import '_colors'; 
+
 nav{
-  background-color: #5E35B1; 
+  background-color: $primary; 
 }
 
 nav .brand-logo{

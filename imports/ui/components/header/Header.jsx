@@ -8,18 +8,18 @@ export default class Header extends React.Component {
     super(props);
 
     this.state = {
-      isLoggedIn: User.isLoggedIn(), 
-    }; 
+      isLoggedIn: User.isLoggedIn()
+    }
 
-     this.onLogout = this.onLogout.bind(this); 
+    this.logout = this.logout.bind(this); 
   }
 
-  onLogout(){
+  logout(){
     Meteor.logout((err)=>{
-      if(err) {
-        Materialize.toast( err.reason , 4000) ; 
-      }else{
-        this.setState({isLoggedIn: !this.state.isLoggedIn}); 
+      if(err){
+            Materialize.toast(err.reason, 4000) ; 
+      } else {
+        this.setState({isLoggedIn: !this.state.isLoggedIn});
         FlowRouter.go('/'); 
       }
     });
@@ -27,19 +27,26 @@ export default class Header extends React.Component {
 
   render() {
 
-    let navOptions = User.isLoggedIn ? 
-        <LoggedInNav logout={this.onLogout}/>
-    : 
-        <LoggedOutNav /> ; 
+    let navOptions;
+
+    if(User.isLoggedIn()){
+      navOptions = (
+        <LoggedInNav logout={this.logout}/> 
+      );
+    } else{
+      navOptions = (
+        <LoggedOutNav /> 
+      );
+    }
 
     return (
       <div>
         <nav>
           <div className="nav-wrapper">
-          <a href="#" className="brand-logo">Logo</a>
+            <a href="#" className="brand-logo">Logo</a>
             {navOptions} 
           </div>
-      </nav>
+        </nav>
 
       </div>
     );
