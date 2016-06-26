@@ -1,12 +1,12 @@
 import React from 'react';
-import Home from '../pages/Home.jsx';
+import Header from '../components/header/Header.jsx';
 
 export default class MainLayout extends React.Component {
   render() {
     return (
       <div>
-        <Home />
-        <main>{this.props.children}</main>
+        <Header />
+        <main className="container">{this.props.children}</main>
       </div>
     );
   }

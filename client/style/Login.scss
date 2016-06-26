@@ -1,0 +1,42 @@
+@import '_colors'; 
+
+.text-center {
+  text-align: center;  
+}
+
+.btn-block{
+  width: 100%; 
+}
+
+.btn {
+  background-color: $primary;
+  &:hover{ 
+    background-color: $secondary; 
+  }
+}
+
+.input-field input[type=text]:focus + label {
+  color: $primary;
+}
+
+.input-field input[type=password]:focus + label {
+  color: $primary;
+}
+
+input[type=text] {
+  &:focus:not([readonly]) {
+    border-bottom: 1px solid $primary;
+    box-shadow: 0 1px 0 0 $primary;
+  } 
+}
+
+input[type=password] {
+  &:focus:not([readonly]) {
+    border-bottom: 1px solid $primary;
+    box-shadow: 0 1px 0 0 $primary;
+  } 
+}
+
+.waves-effect.waves-light{
+  background-color: $primary;
+}
